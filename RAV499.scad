@@ -33,21 +33,11 @@ module rav499_bat_cov() {
     L7 = 4.0;//width of end clips
     L8 = 15.6;//width of retension clip
     L9 = 11.1;//height of retension clip
-    L10 = 5.25;// offset for catch
-    L11 = 3;// length of catch
     T1 = 1.5;//thickness of main body
     T2 = 1.1;//thickness of end clips
-    T3 = 1; //thickness of retension clip
-    T4 = 2.25; //thickness of catch
-    D1 = 4; //outer diamater of retension clip
+    T3 = 1.25; //thickness of retension clip
+    D1 = 4+T3/2; //outer diamater of retension clip
     D2 = D1 - 2*T3;//inner diamater of retension clip
-    A1 = 5.5; //angle of main (angled) body (trimming)
-    //Calculate the offset from rotation using (a^2 + b^2 = c^2)
-    CL1 = sqrt(((L3/2)*(L3/2))/2);
-    //add half the length of the main section
-    CL2 = CL1 + L2/2;
-    //Now move based on the material thickness using (a^2 + b^2 = c^2)
-    CL3 = CL2 - sqrt(((T1/2)*(T1/2))/2);
 
     union() {
         //the main body
@@ -66,25 +56,27 @@ module rav499_bat_cov() {
         
         //opener
         translate([-((L1/2)+(D2/2)),0,0]) {
-        difference () //difference
-            {
-            //The outer cylinder (OD)
-            translate([0,0,L9-(D1/2)])
-            rotate([90,0,0])
-            scale([1/100,1/100,1/100])
-            cylinder(100*L8, 100*(D1/2), 100*(D1/2), center = true);
-            //The inner cylinder (ID)
-            translate([0,0,L9-(D1/2)])
-            rotate([90,0,0])
-            scale([1/100,1/100,1/100])
-            cylinder(100*L8, 100*(D2/2), 100*(D2/2), center = true);
-            translate([0,0,L9-(D1/2)-((D1/2)/2)])
-            cube([D1, L8+.1, D1/2], center = true);
-            }//difference
+            difference () { //difference
+                //The outer cylinder (OD)
+                translate([0,0,L9-(D1/2)])
+                rotate([90,0,0])
+                scale([1/100,1/100,1/100])
+                cylinder(100*L8, 100*(D1/2), 100*(D1/2), center = true);
 
-            color("red") translate([((D1/2)-(T3/2)),0,(L9/2)-D1/4])
+                //The inner cylinder (ID)
+                translate([0,0,L9-(D1/2)])
+                rotate([90,0,0])
+                scale([1/100,1/100,1/100])
+                cylinder(100*L8, 100*(D2/2), 100*(D2/2), center = true);
+
+                translate([0,0,L9-(D1/2)-((D1/2)/2)])
+                cube([D1, L8+.1, D1/2], center = true);
+            } //difference
+
+            // Vertical parts
+            translate([((D1/2)-(T3/2)),0,(L9/2)-D1/4])
             cube([T3, L8, L9-(D1/2)], center = true);
-            color("blue") translate([-((D1/2)-(T3/2)),0,(L9/2)-D1/4])
+            translate([-((D1/2)-(T3/2)),0,(L9/2)-D1/4])
             cube([T3, L8, L9-(D1/2)], center = true);	
 
             // Nail clip
