@@ -35,8 +35,8 @@ module rav499_bat_cov() {
     L9 = 11.1;//height of retension clip
     T1 = 1.5;//thickness of main body
     T2 = 1.1;//thickness of end clips
-    T3 = 1.25; //thickness of retension clip
-    D1 = 4+T3/2; //outer diamater of retension clip
+    T3 = 1.25+0.2; //thickness of retension clip
+    D1 = 4+T3/2-0.5; //outer diamater of retension clip
     D2 = D1 - 2*T3;//inner diamater of retension clip
 
     union() {
