@@ -24,19 +24,19 @@ module roundedRect(size, radius) {
 module rav499_bat_cov() {
 
     //dimensions
-    L1 = 53.5;//length of main body
-    L2 = 23.4;//width of main body (flat section only)
-    L3 = 9;//width of main body (angled section only)
+    L1 = 53.2;//length of main body
+    L2 = 23.2;//width of main body (flat section only)
+    L3 = 9.2;//width of main body (angled section only)
     L4 = 14.75;//center-to-center
-    L5 = 3.75-1.5;//height of end clips
-    L6 = 2.5;//Length of end clips
+    L5 = 2;//height of end clips
+    L6 = 2.4;//Length of end clips
     L7 = 4.0;//width of end clips
     L8 = 15.6;//width of retension clip
-    L9 = 11.1;//height of retension clip
-    T1 = 1.5;//thickness of main body
-    T2 = 1.1;//thickness of end clips
-    T3 = 1.25+0.2; //thickness of retension clip
-    D1 = 4+T3/2-0.5; //outer diamater of retension clip
+    L9 = 11.2;//height of retension clip
+    T1 = 1.2;//thickness of main body
+    T2 = 1.2;//thickness of end clips
+    T3 = 1.2; //thickness of retension clip
+    D1 = 4+T3/2-0.6; //outer diamater of retension clip
     D2 = D1 - 2*T3;//inner diamater of retension clip
 
     union() {
