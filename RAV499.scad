@@ -26,14 +26,14 @@ module rav499_bat_cov() {
     //dimensions
     L1 = 53.2;//length of main body
     L2 = 23.2;//width of main body (flat section only)
-    L4 = 14.8;//center-to-center
-    L5 = 4;//height of end clips
-    L6 = 2.4;//Length of end clips
+    L4 = 14.8;//center-to-center of end clips
+    L5 = 2.8;//height of end clips
+    L6 = 2.8;//Length of end clips
     L7 = 4;//width of end clips
     L8 = 14;//width of retension clip
     L9 = 11.2;//height of retension clip
-    T1 = 2;//thickness of main body
-    T2 = 1.2;//thickness of end clips
+    T1 = 1.8;//thickness of main body
+    T2 = 0.9;//thickness of end clips
     T3 = 1.2; //thickness of retension clip
     D1 = 4+T3/2-0.6; //outer diamater of retension clip
     D2 = D1 - 2*T3;//inner diamater of retension clip
